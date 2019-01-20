@@ -10,8 +10,8 @@
 
 	<title>&#9889;fulmo&#9889;</title>
 	<meta name="description" content="A simple Lightning Network Interface" />
-	<meta name="author" content="Mike Marzigliano" />
-	<meta name="contact" content="marzig76@gmail.com" />
+	<meta name="author" content="Groestlcoin developers" />
+	<meta name="contact" content="groestlcoin@gmail.com" />
 </head>
 <body>
 	<h1>&#9889;fulmo: a minimalist c-lightning UI&#9889;</h1>
@@ -29,7 +29,7 @@
 		<span id="getinfoBlurb">
 		<br />
 		<span class="subtitle">Quick Start:</span><br />
-		To get started, send some Bitcoin to this wallet by clicking on the <span class="keyword">On-chain Wallet</span> button, and generating a receive address.
+		To get started, send some Groestlcoin to this wallet by clicking on the <span class="keyword">On-chain Wallet</span> button, and generating a receive address.
 		<br /><br />
 		Once you have some funds, open up a channel from the <span class="keyword">Channels</span> button.
 		<br /><br />
@@ -59,7 +59,7 @@
 		<span id="connectionText"></span><br />
 		<label for="connection">URI:</label>
 		<input id="connection" type="text" value="NodeID@IPaddress:Port" /><br />
-		<label for="connectionAmount">Satoshis:</label>
+		<label for="connectionAmount">Gro:</label>
 		<input id="connectionAmount" type="number" value="100000" /><br />
 		<input id="connect" type="button" value="Connect" />
 	</div>
@@ -81,7 +81,7 @@
 		<span id="withdrawText"></span><br />
 		<label for="withdrawAddress">Recipient:</label>
 		<input id="withdrawAddress" type="text" value=""/><br />
-		<label for="withdrawAmount">Amount (satoshis):</label>
+		<label for="withdrawAmount">Amount (gro):</label>
 		<input id="withdrawAmount" type="text" value=""/><br />
 		<label for="withdrawAll">Send all on-chain funds?</label>
 		<input id="withdrawAll" type="checkbox"/><br /><br />
@@ -90,7 +90,7 @@
 	<div id="invoices" class="lightningwallet">
 		<span id="invoiceTitle"><span class="subtitle">Create a Lightning Invoice:</span><br /></span>
 		<span id="invoiceText"></span><br />
-		<label for="invoiceAmont">MilliSatoshis:</label>
+		<label for="invoiceAmont">MilliGro:</label>
 		<input id="invoiceAmount" type="text" value="100000"/><br />
 		<label for="invoiceDescription">Payment Description:</label>
 		<input id="invoiceDescription" type="text" value="pizza"/><br />
@@ -116,7 +116,7 @@
 			This invoice has no amount specified.
 			Please enter the amount you want to pay:
 			<br /><br />
-			<label for="payInvoiceAmount">MilliSatoshis:</label>
+			<label for="payInvoiceAmount">MilliGro:</label>
 			<input id="payInvoiceAmount" type="number"><br /><br />
 		</div>
 		<!-- No need for the decode button since we're handling it through the paste event

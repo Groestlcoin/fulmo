@@ -89,7 +89,7 @@ $(document).ready(function() {
 		$('.buttons').show();
 	});
 
-	// show on-chain BTC payments and balances
+	// show on-chain GRS payments and balances
 	$('#showwallet').click(function() {
 		hideAll();
 		$('.balances').show();
@@ -199,8 +199,8 @@ function gethistory(){
 		for (var key in payments) {
 			paymentsHTML += "<div class='alt'>";
 			paymentsHTML += "Recipient: " + payments[key]["destination"] + "<br />";
-			paymentsHTML += "Amount: " + payments[key]["msatoshi"].toLocaleString() + " msatoshis<br />";
-			paymentsHTML += "Fee: " + (payments[key]["msatoshi_sent"] - payments[key]["msatoshi"]).toLocaleString() + " msatoshis<br />";
+			paymentsHTML += "Amount: " + payments[key]["msatoshi"].toLocaleString() + " gro<br />";
+			paymentsHTML += "Fee: " + (payments[key]["msatoshi_sent"] - payments[key]["msatoshi"]).toLocaleString() + " gro<br />";
 			paymentsHTML += "Status: " + payments[key]["status"] + "<br />";
 
 			var sent = new Date(payments[key]["created_at"] * 1000);
@@ -416,7 +416,7 @@ function bolt11(action){
 		if ("message" in jsonData){
 			response += "Error: " + jsonData.message;
 		}else if (action == "pay"){
-			response += "Amount: " + jsonData.msatoshi.toLocaleString() + " msatoshi<br />";
+			response += "Amount: " + jsonData.msatoshi.toLocaleString() + " gro<br />";
 			response += "Status: " + jsonData.status + "<br />";
 			response += "Recipient: " + jsonData.destination + "<br />";
 			response += "Payment Hash: " + jsonData.payment_hash;
@@ -437,7 +437,7 @@ function bolt11(action){
 			}else {
 				$('#noAmount').hide();
 			}
-			response += "Amount: " + jsonData.msatoshi.toLocaleString() + " msatoshi<br />";
+			response += "Amount: " + jsonData.msatoshi.toLocaleString() + " gro<br />";
 			response += "Description: " + jsonData.description + "<br />";
 			response += "Recipient: " + jsonData.payee + "<br />";
 
@@ -458,13 +458,13 @@ function getbalances(){
 		var response = JSON.parse(data);
 		var balance = (response.balance * 0.00000001).toFixed(8);
 		console.log("onchain balance: " + balance);
-		$('#onchainbalance').html("<br />On-chain Balance: " + balance + " BTC<br />");
+		$('#onchainbalance').html("<br />On-chain Balance: " + balance + " GRS<br />");
 	});
 	$.get( "lightningbalance/", function( data ) {
 		var response = JSON.parse(data);
 		var balance = (response.balance * 0.00000000001).toFixed(8)
 		console.log("lightning balance: " + balance);
-		$('#lightningbalance').html("Lightning Balance: " + balance + " BTC<br />");
+		$('#lightningbalance').html("Lightning Balance: " + balance + " GRS<br />");
 	});
 }
 
@@ -495,7 +495,7 @@ function listchannels(){
 						channel_html += "<div class='alt'>";
 						channel_html += "Alias: " + peers[key].alias + "<br />";
 						channel_html += "State: " + channels[ckey].state + "<br />";
-						channel_html += "Balance: " + channels[ckey].msatoshi_to_us.toLocaleString() + " msatoshis<br />";
+						channel_html += "Balance: " + channels[ckey].msatoshi_to_us.toLocaleString() + " gro<br />";
 						channel_html += "Channel ID: " + channels[ckey].channel_id + "<br />"
 						channel_html += "Peer ID: " + peers[key].id + "<br />";
 						if (channels[ckey].funding_txid){

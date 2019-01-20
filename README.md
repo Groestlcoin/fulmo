@@ -4,7 +4,7 @@ a minimalist c-lightning UI
 Dependencies
 ============
 
-You must have a [bitcoin full node](https://github.com/bitcoin/bitcoin) and [c-lightning](https://github.com/ElementsProject/lightning) installed and running.
+You must have a [groestlcoin full node](https://github.com/groestlcoin/groestlcoin) and [c-lightning](https://github.com/groestlcoin/lightning) installed and running.
 
 Make sure python, pip, and git are installed:
 
@@ -28,7 +28,7 @@ rpc-file=/tmp/lightning-rpc
 Then run:
 
 ```shell
-git clone https://github.com/marzig76/fulmo
+git clone https://github.com/groestlcoin/fulmo
 cd fulmo
 ./fulmo
 ```
