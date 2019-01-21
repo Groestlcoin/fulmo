@@ -474,7 +474,7 @@ function earnedFees(){
                 var response = JSON.parse(data);
                 var fees = response.earned_fees.toLocaleString();
                 console.log("earned fees: " + fees);
-                $('#earnedfees').html("<br />You've earned " + fees + " msatoshis by routing Lighting payments.");
+                $('#earnedfees').html("<br />You've earned " + fees + " mgro by routing Lighting payments.");
         });
 }
 
