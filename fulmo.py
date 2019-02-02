@@ -36,9 +36,10 @@ def new_address():
 def withdraw():
 	addr = request.args.get("addr")
 	amount = request.args.get("amount")
+	feerate = request.args.get('feerate')
 
 	try:
-		result = ln.withdraw(addr, amount)
+		result = ln.withdraw(addr, amount, feerate)
 	except ValueError, e:
 		result = parse_exception(e)
 
@@ -56,6 +57,14 @@ def get_info():
 @app.route("/listpayments/")
 def list_payments():
         return json.dumps(ln.listpayments())
+
+@app.route("/listinvoices/")
+def list_invoices():
+        return json.dumps(ln.listinvoices())
+
+@app.route("/delexpiredinvoice/")
+def del_expired_invoice():
+        return json.dumps(ln.delexpiredinvoice())
 
 @app.route("/earnedfees/")
 def earned_fees():
@@ -197,12 +206,12 @@ def qr(data):
 def parse_exception(e):
 	# The ValueError that's raised from the Lightning RPC library
 	# contains (among other text) a string representation of multiple dict objects.
-	# This is a little hacky, but the goal here is to extract the first dict
-	# and return it, so it can be used as an actual dict, not a string
+	# This is a little hacky, but the goal here is to extract the dict containing the error
+	# and return it, so it can be used as an actual python dict object, not a string
 	error = str(e)
 
 	# Trying to extract the dict based on the presence of curly braces
-	msg_str = error[error.find("{"):error.find(", method")]
+	msg_str = error[error.find("{u'message"):]
 
 	# Sometimes a SyntaxError is raised when we fail to extract the dict perfectly
 	# In that case we just return the original error message

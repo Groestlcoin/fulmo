@@ -21,6 +21,7 @@
 		<input id="showchannelspeers" type="button" value="Channels" />
 		<input id="showpayments" type="button" value="Lightning Wallet" />
 		<input id="showhistory" type="button" value="Payment History" />
+		<input id="showinvoicehistory" type="button" value="Invoice History" />
 		<!-- <input id="showall" type="button" value="Show All" /> -->
 	</div>
 	<div id="getinfo" class="info">
@@ -58,7 +59,7 @@
 		<span id="connectionTitle">
 			<span class="subtitle">Open a Channel:</span><br />
 			<a target="_blank"
-			   href='https://lnmainnet.groestlcoin.org/?100='>Find a node to connect to
+			   href='https://lnmainnet.groestlcoin.org/'>Find a node to connect to
 			</a><br />
 		</span>
 		<span id="connectionText"></span><br />
@@ -90,6 +91,12 @@
 		<input id="withdrawAmount" type="text" value=""/><br />
 		<label for="withdrawAll">Send all on-chain funds?</label>
 		<input id="withdrawAll" type="checkbox"/><br /><br />
+		<label for="feerate">Fee Rate:</label>
+		<select id="feerate" name="feerate">
+			<option value="normal" selected="selected">Normal</option>
+			<option value="urgent">Urgent</option>
+			<option value="slow">Slow</option>
+		</select><br />
 		<input id="withdrawButton" type="button" value="Send"/>
 	</div>
 	<div id="invoices" class="lightningwallet">
@@ -129,8 +136,13 @@
 		<input id="paybolt11" type="button" value="Send Payment" />
 	</div>
 	<div id="history" class="history">
-		<span id="historyTitle"><span class="subtitle"></span></span>
+		<span id="historyTitle"><span class="subtitle"><br />Payments Sent:</span></span>
 		<span id="historyText"></span>
+	</div>
+	<div id="invoicehistory" class="invoicehistory">
+		<span id="invoiceHistoryTitle"><span class="subtitle"><br />Invoices:</span></span>
+		<span id="invoiceHistoryText"></span>
+		<input id="delexpiredinvoice" type="button" value="Delete Expired Invoices" />
 	</div>
 	<div id="buttons" class="buttons">
 		<input id="clear" type="button" value="Clear" />
